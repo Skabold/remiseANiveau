@@ -20,6 +20,7 @@ public class Plage {
      * Constructor
      * @param leTitre String
      * @param Interprete String
+     * @throws  @throws IllegalArgumentException
      */
     public Plage (String leTitre, String Interprete, Duree laDuree){
 
@@ -44,22 +45,19 @@ public class Plage {
     }
 
     /**
-    *
-    *
-    *
-    */
+     * gettter the fiche of the plage
+     * @return the fiche
+     */
     public String getFicheComplete(){
         String ret="";
-
         ret ="Titre : " +this.getLeTitre() + " Interprète : " + this.getInterprete()+" Duree : "+ this.laDuree.enTexte('H');
-
         return ret;
     }
 
 
     /** 
      * Getter for laDuree
-     * @return
+     * @return duree
      */
     public Duree getLaDuree() {
         return this.laDuree;
@@ -67,7 +65,7 @@ public class Plage {
 
     /**
      * getter for titre
-     * @return
+     * @return titre
      */
     public String getLeTitre() {
         return this.leTitre;
@@ -76,7 +74,7 @@ public class Plage {
     //getters and setter
     /**
      * Getter for Interprete
-     * @return
+     * @return interprete
      */
     public String getInterprete() {
         return this.Interprete;
@@ -84,8 +82,8 @@ public class Plage {
 
 
     /**
-     *
-     *
+     * Method that return the toString of the class
+     * @return String the string
      */
     public String toString(){
          String ret="";
@@ -100,6 +98,7 @@ public class Plage {
     /**
      * Setter for Interprete
      * @param interprete
+     * @throws  @throws IllegalArgumentException
      */
     public void setInterprete(String interprete) {
         if(interprete!=null && interprete.length()>0){
@@ -115,6 +114,7 @@ public class Plage {
     /**
      * setter for titre
      * @param leTitre
+     * @throws  @throws IllegalArgumentException
      */
     public void setLeTitre(String leTitre) {
         if(leTitre!=null && leTitre.length()>0){
@@ -126,13 +126,11 @@ public class Plage {
         }
     } 
 
-    
-
-    
 
     /**
      * setter for laDuree
      * @param laDuree
+     * @throws  @throws IllegalArgumentException
      */
     public void setLaDuree(Duree laDuree) {
         if(laDuree!=null){

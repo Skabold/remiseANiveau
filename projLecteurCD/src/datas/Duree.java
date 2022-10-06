@@ -17,6 +17,7 @@ public class Duree {
      * Constructor
      * @param leTitre String
      * @param Interprete String
+     * @throws  @throws IllegalArgumentException
      */
     public Duree (long milisec){
         if(milisec >=0){
@@ -32,6 +33,7 @@ public class Duree {
      * @param heures
      * @param minutes
      * @param secondes
+     * @throws  @throws IllegalArgumentException
      */
     public Duree(int heures, int minutes, int secondes){
         // variable locale qui sera mise dans this.leTemps
@@ -61,7 +63,11 @@ public class Duree {
         this.leTemps = Temps;
     }
 
-
+    /**
+     * Constructor
+     * @throws  @throws IllegalArgumentException
+     * @param autreDuree
+     */
     public Duree (Duree autreDuree){
         if(autreDuree!=null){
             this.setLeTemps(autreDuree.getLeTemps());
@@ -82,6 +88,7 @@ public class Duree {
     /**
      * Setter for leTemps
      * @param leTemps
+     * @throws  @throws IllegalArgumentException
      *///
     public void setLeTemps(long leTemps) {
 
@@ -183,9 +190,7 @@ public class Duree {
         milliseconds -= TimeUnit.HOURS.toMillis(hours);
         long minutes = (int) ((milliseconds / (1000*60)) % 60);
         milliseconds -= TimeUnit.MINUTES.toMillis(minutes);
-        
         long seconds = ((int) (milliseconds / 1000) % 60 );
-
         milliseconds -= TimeUnit.SECONDS.toMillis(seconds); 
         
         int[] ret = {(int)days,(int)hours,(int)minutes,(int)seconds,(int)milliseconds};

@@ -24,6 +24,7 @@ public class CD {
      * Constructor
      * @param leTitreCD
      * @param InterpreteCD
+     * @throws  @throws IllegalArgumentException
      */
     public CD( String leTitreCD, String InterpreteCD){
         if(leTitreCD!=null && leTitreCD.length()>0 ){
@@ -44,10 +45,9 @@ public class CD {
     }
 
     /**
-     *
-     *
-     *
-     *
+     * Constructor
+     * @param leFich
+     * @throws  @throws IllegalArgumentException
      */
     public CD(String leFich){
         this.lesPlages = new ArrayList<Plage>();
@@ -70,6 +70,7 @@ public class CD {
     /**
      * Setter for InterpreteCD
      * @param interprete
+     * @throws  @throws IllegalArgumentException
      */
     public void setInterpreteCD(String InterpreteCD) {
         if(InterpreteCD!=null && InterpreteCD.length()>0){
@@ -83,6 +84,7 @@ public class CD {
     /**
      * setter for leTitreCD
      * @param leTitreCD
+     * @throws  @throws IllegalArgumentException
      */
     public void setLeTitreCD(String leTitreCD) {
 
@@ -99,6 +101,7 @@ public class CD {
     /**
      * setter for lesPlages
      * @param lesPlages
+     * @throws  @throws IllegalArgumentException
      */
     public void setLesPlages(ArrayList<Plage> lesPlages) {
         if(lesPlages!=null&& lesPlages.size()>0){
@@ -127,7 +130,7 @@ public class CD {
     }
 
     /**
-     * Getter gor lesPlages
+     * Getter for lesPlages
      * @return
      */
     public ArrayList<Plage> getLesPlages() {
@@ -135,12 +138,17 @@ public class CD {
     }
 
     /**
-    *
-    **/
+     * Get the number of plage
+     * @return
+     */
     public int getNbrePlages(){
         return this.lesPlages.size();
     }
 
+    /**
+     * get duree totale
+     * @return
+     */
     public Duree getDureeTotale(){
         Duree ret = new Duree(0);
 
@@ -150,7 +158,12 @@ public class CD {
         return ret;
     }
 
-
+    /**
+     * get a specific plage in les plages
+     * @param index the index of the plage
+     * @return the plage
+     * @throws  @throws IllegalArgumentException
+     */
     public Plage getUnePlage(int index){
         Plage ret = null;
 
@@ -169,12 +182,19 @@ public class CD {
     }
 
 
-
+    /**
+     * method that burn a CD
+     */
     private void graverCD(){
         Plage nouveau = new Plage("Titre", "Interprete", new Duree(1,10,50));
         this.lesPlages.add(nouveau);
     }
 
+    /**
+     * Method that burn a CD form a file
+     * @param leFich
+     * @throws FileNotFoundException
+     */
     private void graverCD(String leFich)throws FileNotFoundException {
 
         String[] tab = new String[4];
