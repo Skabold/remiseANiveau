@@ -69,7 +69,7 @@ public class CD {
     //accesseurs :
     /**
      * Setter for InterpreteCD
-     * @param interprete
+     * @param InterpreteCD String
      * @throws  @throws IllegalArgumentException
      */
     public void setInterpreteCD(String InterpreteCD) {
@@ -83,7 +83,7 @@ public class CD {
 
     /**
      * setter for leTitreCD
-     * @param leTitreCD
+     * @param leTitreCD String
      * @throws  @throws IllegalArgumentException
      */
     public void setLeTitreCD(String leTitreCD) {
@@ -100,7 +100,7 @@ public class CD {
 
     /**
      * setter for lesPlages
-     * @param lesPlages
+     * @param lesPlages ArrayList<Plage>
      * @throws  @throws IllegalArgumentException
      */
     public void setLesPlages(ArrayList<Plage> lesPlages) {
@@ -115,7 +115,7 @@ public class CD {
 
     /**
      * getter for InterpreteCD
-     * @return
+     * @return String
      */
     public String getLInterpreteCD() {
         return this.InterpreteCD;
@@ -123,7 +123,7 @@ public class CD {
 
     /**
      * Getter for leTitreCD
-     * @return
+     * @return String
      */
     public String getLeTitreCD() {
         return this.leTitreCD;
@@ -131,7 +131,7 @@ public class CD {
 
     /**
      * Getter for lesPlages
-     * @return
+     * @return ArrayList<Plage>
      */
     public ArrayList<Plage> getLesPlages() {
         return this.lesPlages;
@@ -139,7 +139,7 @@ public class CD {
 
     /**
      * Get the number of plage
-     * @return
+     * @return int
      */
     public int getNbrePlages(){
         return this.lesPlages.size();
@@ -147,7 +147,7 @@ public class CD {
 
     /**
      * get duree totale
-     * @return
+     * @return Duree
      */
     public Duree getDureeTotale(){
         Duree ret = new Duree(0);
@@ -192,8 +192,8 @@ public class CD {
 
     /**
      * Method that burn a CD form a file
-     * @param leFich
-     * @throws FileNotFoundException
+     * @param leFich String
+     * @throws FileNotFoundException 
      */
     private void graverCD(String leFich)throws FileNotFoundException {
 
@@ -229,9 +229,5 @@ public class CD {
             }
             i++;
         }
-
     }
-
-
-
 }

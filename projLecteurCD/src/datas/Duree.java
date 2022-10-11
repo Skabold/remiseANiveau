@@ -15,8 +15,7 @@ public class Duree {
     
     /**
      * Constructor
-     * @param leTitre String
-     * @param Interprete String
+     * @param milisec long
      * @throws  @throws IllegalArgumentException
      */
     public Duree (long milisec){
@@ -30,9 +29,9 @@ public class Duree {
     }
     /**
      * Constructor
-     * @param heures
-     * @param minutes
-     * @param secondes
+     * @param heures int
+     * @param minutes int
+     * @param secondes int
      * @throws  @throws IllegalArgumentException
      */
     public Duree(int heures, int minutes, int secondes){
@@ -66,7 +65,7 @@ public class Duree {
     /**
      * Constructor
      * @throws  @throws IllegalArgumentException
-     * @param autreDuree
+     * @param autreDuree Duree
      */
     public Duree (Duree autreDuree){
         if(autreDuree!=null){
@@ -87,7 +86,7 @@ public class Duree {
 
     /**
      * Setter for leTemps
-     * @param leTemps
+     * @param leTemps long
      * @throws  @throws IllegalArgumentException
      *///
     public void setLeTemps(long leTemps) {
@@ -102,7 +101,7 @@ public class Duree {
     }
     /**
      * Modificateur qui ajoute une durée à la durée courante
-     * @param autreDuree
+     * @param autreDuree Duree
      */
     public void ajoute(Duree autreDuree) {
         setLeTemps(autreDuree.getLeTemps() + getLeTemps());
@@ -111,7 +110,7 @@ public class Duree {
     /**
      * Accesseur qui effectue une comparaison entre la durée courante et une autre durée.
      * @param autreDuree
-     * @return 
+     * @return int
      * un entier qui prend les valeurs suivantes :
      * -1 : si la durée courante est + petite que autreDuree
      * 0 : si la durée courante est égale à autreDuree
@@ -132,12 +131,12 @@ public class Duree {
     /**
      * Accesseur qui renvoie sous la forme d'une chaîne de caractères la durée
      * courante.
-     * @param mode - décide de la forme donnée à la chaîne de caractères
+     * @param mode décide de la forme donnée à la chaîne de caractères
      * La forme de la chaîne de caractères dépend du "mode" (caractère passé en paramètre) choisi :
-     * si mode == 'J' => chaîne de caractères de la forme "JJJ jours HH h"
-     * si mode == 'H' => chaîne de caractères de la forme "HHH:MM:SS"
-     * si mode == 'S' => chaîne de caractères de la forme "SSS.MMM sec"
-     * si mode == 'M' => chaîne de caractères de la forme "MMMMMM millisec"
+     * si mode == 'J' = chaîne de caractères de la forme "JJJ jours HH h"
+     * si mode == 'H' = chaîne de caractères de la forme "HHH:MM:SS"
+     * si mode == 'S' = chaîne de caractères de la forme "SSS.MMM sec"
+     * si mode == 'M' = chaîne de caractères de la forme "MMMMMM millisec"
      * @return
      */
     public String enTexte(char mode){
@@ -177,10 +176,10 @@ public class Duree {
      * minutes, secondes, millisecondes). La durée courante (leTemps) est analysée pour fabriquer un
      * tableau d'entiers (taille 5) dont chaque élément a la signification suivante :
      * @return ret[0] contient le nbre de jours
-     * ret[1] contient le nbre d'heures (<24h)
-     * ret[2] contient le nbre de minutes (<60min)
-     * ret[3] contient le nbre de secondes (<60sec)
-     * ret[4] contient le nbre de millisecondes (<1000millisec)
+     * ret[1] contient le nbre d'heures (inf 24h)
+     * ret[2] contient le nbre de minutes (inf 60min)
+     * ret[3] contient le nbre de secondes (inf 60sec)
+     * ret[4] contient le nbre de millisecondes (inf 1000millisec)
      */
     private int[] enJHMS() {   
         long milliseconds = getLeTemps();

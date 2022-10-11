@@ -50,7 +50,7 @@ public class Plage {
      */
     public String getFicheComplete(){
         String ret="";
-        ret ="Titre : " +this.getLeTitre() + " Interprète : " + this.getInterprete()+" Duree : "+ this.laDuree.enTexte('H');
+        ret ="Titre : " + this.getLeTitre() + " Interprète : " + this.getInterprete()+" Duree : "+ this.laDuree.enTexte('H');
         return ret;
     }
 
