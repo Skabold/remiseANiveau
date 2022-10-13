@@ -47,14 +47,14 @@ public class LecteurCD {
      * Modificateur qui simule la touche STOP
      */
     public void stop(){
-        if(this.estCharge) this.indexPlage=1;
+        if(this.estCharge) this.indexPlage=0;
     }
 
     /**
      * Modificateur qui simule la touche PLAY
      */
     public void play(){
-        if(this.estCharge) this.indexPlage=1;
+        if(this.estCharge) this.indexPlage=0;
     }
 
     /**

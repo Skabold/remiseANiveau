@@ -104,8 +104,9 @@ public class Duree {
      * @param autreDuree Duree
      */
     public void ajoute(Duree autreDuree) {
-        setLeTemps(autreDuree.getLeTemps() + getLeTemps());
-    }
+        long tps = getLeTemps() + autreDuree.getLeTemps();
+        setLeTemps(tps);
+        }
 
     /**
      * Accesseur qui effectue une comparaison entre la durée courante et une autre durée.

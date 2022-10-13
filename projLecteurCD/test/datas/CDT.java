@@ -24,7 +24,7 @@ public class CDT {
 
     private static void testConstructorAndGetter1() {
         try {
-            System.out.println("test constructor (cd vide) and getter");
+
             // Duree myDuree = new Duree(1000);
             CD myCD = new CD("leTitreCD","InterpreteCD");
             if(myCD.getLeTitreCD() == "leTitreCD" &&

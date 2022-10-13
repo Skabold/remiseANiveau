@@ -6,6 +6,8 @@
 
 package IHM;
 import javax.swing.*;
+
+import Control.Reaction;
 import datas.LecteurCD;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,40 +21,44 @@ public class InterfaceGraphique extends JFrame {
     private LecteurCD lcd = new LecteurCD();
 
     //mainFrame
-    GridLayout mainLayout = new GridLayout(1,2);
+    private GridLayout mainLayout = new GridLayout(1,2);
 
     //0ed pannel elements    :
-    JPanel zeroPannel = new JPanel();
-    GridLayout zeroLayout = new GridLayout(3,1);
-    JLabel image = new JLabel("loading image fail");
+    private JPanel zeroPannel = new JPanel();
+    private GridLayout zeroLayout = new GridLayout(3,1);
+    private JLabel image = new JLabel("loading image fail");
     
     //first pannel elements
-    JPanel firstPannel = new JPanel();
-    GridLayout firstLayout = new GridLayout(3,2);
-    JButton chargerCDButton = new JButton("Charger CD - Off");
-    JLabel tempsTotLabel = new JLabel("Temps totale :");
-    JLabel nombreDePlagesLabel = new JLabel("Nombre de plage :");
-    JTextField tempsTot = new JTextField("00:00:00");
-    JTextField nombreDePlages = new JTextField("0");
+    private JPanel firstPannel = new JPanel();
+    private GridLayout firstLayout = new GridLayout(3,2);
+    private JButton chargerCDButton = new JButton("Charger CD - Off");
+    private JLabel tempsTotLabel = new JLabel("Temps totale :");
+    private JLabel nombreDePlagesLabel = new JLabel("Nombre de plage :");
+    private JTextField tempsTot = new JTextField("");
+    private JTextField nombreDePlages = new JTextField("");
 
     //second pannel elements
-    JPanel secondPannel = new JPanel();
-    BorderLayout secondLayout = new BorderLayout();
-    JTextField indexPlageCD  = new JTextField("0");
-    JTextField titrePlageCD = new JTextField("titre du morceau");
-    JTextField dureePlageCD = new JTextField("00:00:00");
+    private JPanel secondPannel = new JPanel();
+    private BorderLayout secondLayout = new BorderLayout();
+    private JTextField indexPlageCD  = new JTextField("");
+    private JTextField titrePlageCD = new JTextField("");
+    private JTextField dureePlageCD = new JTextField("");
 
     //third pannel elements
-    JPanel thirdPannel = new JPanel();
-    GridLayout thirdLayout = new GridLayout(1,4);
-    JButton stop = new JButton("Stop");
-    JButton play = new JButton("Play");
-    JButton next = new JButton("Next");
-    JButton previous = new JButton("Previous");
+    private JPanel thirdPannel = new JPanel();
+    private GridLayout thirdLayout = new GridLayout(1,4);
+    private JButton stop = new JButton("Stop");
+    private JButton play = new JButton("Play");
+    private JButton next = new JButton("Next");
+    private JButton previous = new JButton("Previous");
 
     
 
     // Constructeur
+    /**
+     * Constructor
+     * @param titre
+     */
     public InterfaceGraphique ( String titre ) {
         super(titre);
         miseEnPlaceDuDecort();
@@ -62,6 +68,9 @@ public class InterfaceGraphique extends JFrame {
         this.pack();
     }
 
+    /**
+     * Method that setup the IHM
+     */
     private void miseEnPlaceDuDecort() {
         this.setLayout (this.mainLayout);
         //main frame pannel
@@ -109,6 +118,119 @@ public class InterfaceGraphique extends JFrame {
 
     }
 
-    private void ecouterLesEvenements() {}
+    /**
+     * Method that set up the listenners
+     */
+    private void ecouterLesEvenements() {
+        this.chargerCDButton.addActionListener(new Reaction(this));
+        this.stop.addActionListener(new Reaction(this));
+        this.next.addActionListener(new Reaction(this));
+        this.play.addActionListener(new Reaction(this));
+        this.previous.addActionListener(new Reaction(this));
+
+    }
+
+    /**
+     * get next
+     * @return next
+     */
+    public JButton getNext() {
+        return next;
+    }
+
+    /**
+     * get stop
+     * @return stop
+     */
+    public JButton getStop() {
+        return stop;
+    }
+
+    /**
+     * get play
+     * @return play
+     */
+    public JButton getPlay() {
+        return play;
+    }
+
+    /**
+     * get previous 
+     * @return previous
+     */
+    public JButton getPrevious() {
+        return previous;
+    }
+
+    /**
+     * get tempsTotLabel
+     * @return tempsTotLabel
+     */
+    public JLabel getTempsTotLabel() {
+        return tempsTotLabel;
+    }
+
+    /**
+     * get tempsTot
+     * @return tempsTot
+     */
+    public JTextField getTempsTot() {
+        return tempsTot;
+    }
+
+    /**
+     * get NombreDePlagesLabel
+     * @return NombreDePlagesLabel
+     */
+    public JLabel getNombreDePlagesLabel() {
+        return nombreDePlagesLabel;
+    }
+
+    /**
+     * get NombreDePlages
+     * @return NombreDePlages
+     */
+    public JTextField getNombreDePlages() {
+        return nombreDePlages;
+    }
+
+    /**
+     * get ChargerCDButton
+     * @return ChargerCDButton
+     */
+    public JButton getChargerCDButton() {
+        return chargerCDButton;
+    }
+
+    /**
+     * get IntexPlageCD
+     * @return IntexPlageCD
+     */
+    public JTextField getIndexPlageCD() {
+        return indexPlageCD;
+    }
+
+    /**
+     * get TitrePlageCD
+     * @return TitrePlageCD
+     */
+    public JTextField getTitrePlageCD() {
+        return titrePlageCD;
+    }
+
+    /**
+     * get dureePlageCD
+     * @return dureePlageCD
+     */
+    public JTextField getDureePlageCD() {
+        return dureePlageCD;
+    }
+    /**
+     * get lcd
+     * @return lecteurCDs
+     */
+    public LecteurCD getLcd() {
+        return lcd;
+    }
 
 }

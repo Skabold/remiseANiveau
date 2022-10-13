@@ -212,20 +212,22 @@ public class CD {
 
         while (obj.hasNextLine()){
             ligne = obj.nextLine();
-            if(i==0){
-            tab=ligne.split("/");
-            this.leTitreCD = leTitreCD;
-            this.InterpreteCD = InterpreteCD;
-            }else{
-            
-            tab=ligne.split("/");
-            Titre=tab[0];
-            Interprete=tab[1];
-            min=Integer.valueOf(tab[2]);
-            sec=Integer.valueOf(tab[3]);
 
-            nouveau = new Plage(Titre, Interprete, new Duree(0,min,sec));
-            this.lesPlages.add(nouveau);       
+            if(i==0) {
+                tab=ligne.split("/");
+                this.leTitreCD = tab[0];
+                this.InterpreteCD = tab[1];
+
+            } else {
+            
+                tab=ligne.split("/");
+                Titre=tab[0];
+                Interprete=tab[1];
+                min=Integer.valueOf(tab[2]);
+                sec=Integer.valueOf(tab[3]);
+
+                nouveau = new Plage(Titre, Interprete, new Duree(0,min,sec));
+                this.lesPlages.add(nouveau);       
             }
             i++;
         }
