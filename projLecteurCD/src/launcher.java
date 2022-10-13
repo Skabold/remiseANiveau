@@ -8,6 +8,11 @@ import IHM.InterfaceGraphique;
  * Launch the graphic interface
  */
 public class launcher {
+
+    /**
+     * main
+     * @param args args
+     */
     public static void main(String[] args) {
         InterfaceGraphique frame = new InterfaceGraphique("Lecteur CD");
     }

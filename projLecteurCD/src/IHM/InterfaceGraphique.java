@@ -80,7 +80,8 @@ public class InterfaceGraphique extends JFrame {
         //try to load the image :
         try {
             BufferedImage myPicture = ImageIO.read(new File("../rss/image.png"));
-            image = new JLabel(new ImageIcon(myPicture));
+            ImageIcon img = new ImageIcon(myPicture);
+            image = new JLabel(img);
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -231,6 +232,24 @@ public class InterfaceGraphique extends JFrame {
      */
     public LecteurCD getLcd() {
         return lcd;
+    }
+
+    /**
+     * get image
+     * @return image
+     */
+    public JLabel getImage() {
+        return image;
+    }
+
+    /**
+     * set image
+     * @param image l'image
+     */
+    public void setImage(JLabel image) {
+        this.remove(this.image);
+        this.image = image;
+        this.add(image);
     }
 
 }
